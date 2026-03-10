@@ -22,7 +22,7 @@ public class BankAccount {
 
     @Override
     public String toString(){
-        return "Bank Account{\n" + this.accountNumber +"\nFor User:" + this.fullName + "\nUUID:" + this.id+"\n}";
+        return "Bank Account {\n" + this.accountNumber +"\nFor User:" + this.fullName + "\nUUID:" + this.id+"\n}";
     }
 
     public String getFullName() {
