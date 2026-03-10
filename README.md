@@ -1,0 +1,1 @@
+A java speed-run for my college semester, so I don't have to code it for a second longer than I need to.
