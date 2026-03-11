@@ -4,6 +4,7 @@ import task2.InterestBearing;
 import task2.SavingsAccount;
 import task3.InsufficientFundsException;
 import task3.InvalidAmountException;
+import task5.Bank;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,10 @@ public class Main{
         task3(savingsAccounts);
 
         task4(savingsAccounts);
+
+        Bank b = Bank.getInstance("City Bank");
+        b.addAccount(new BankAccountv2());
+        System.out.println(b);
 
     }
 
