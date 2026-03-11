@@ -6,6 +6,9 @@ import task3.InsufficientFundsException;
 import task3.InvalidAmountException;
 import task5.Bank;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -13,16 +16,36 @@ import java.util.Random;
 public class Main{
     public static void main(String[] args){
 
-        task2();
+        //task2();
 
-        List<SavingsAccount> savingsAccounts = new ArrayList<>();
-        task3(savingsAccounts);
+        //List<SavingsAccount> savingsAccounts = new ArrayList<>();
+        //task3(savingsAccounts);
 
-        task4(savingsAccounts);
+        //task4(savingsAccounts);
 
         Bank b = Bank.getInstance("City Bank");
         b.addAccount(new BankAccountv2());
         System.out.println(b);
+
+
+        List<String> input = new ArrayList<>();
+        try(BufferedReader r = new BufferedReader(new FileReader("input.csv"))){
+            String line;
+            while ((line = r.readLine()) != null) {
+                input.add(line);
+            }
+        }catch (IOException e){
+            System.out.println(e);
+        }
+
+        for (String line : input){
+            String[] accs = line.split(";");
+            for (String acc : accs){
+                System.out.println(acc);
+                //
+            }
+
+        }
 
     }
 
