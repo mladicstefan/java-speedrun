@@ -1,13 +1,23 @@
 package task2;
-import task1.BankAccount;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main{
+    public static void main(String[] args){
 
-    public static void main(){
-        BankAccountv2 b = new BankAccountv2("S M", 12346);
-        BankAccountv2 t = new BankAccountv2("A A", 12347);
+        List<Account> accounts = new ArrayList<>();
+        accounts.add(new BankAccountv2("SM",1234));
+        accounts.add(new SavingsAccount());
 
-        b.transfer(500,t);
-        System.out.println(t.getBalance());
+       for (Account acc : accounts){
+           acc.deposit(100);
+           if (acc instanceof InterestBearing){
+               ((InterestBearing) acc).applyInterest();
+               System.out.println("Applied interest to " + acc.getAccountNumber());
+           }
+           System.out.println(acc.toString());
+           System.out.println(acc.getBalance());
+       }
     }
 }

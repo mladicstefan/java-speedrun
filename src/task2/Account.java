@@ -5,7 +5,7 @@ abstract public class Account {
     private String fullName;
     private final long accountNumber;
     private final UUID id;
-    private long balance;
+    private double balance;
     private static int numOfAccounts;
 
     protected Account(String fullName, long accountNumber) {
@@ -43,15 +43,15 @@ abstract public class Account {
         return id;
     }
 
-    public long getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void deposit(long amount) {
+    public void deposit(double amount) {
         this.balance += amount;
     }
 
-    public void withdraw(long amount) {
+    public void withdraw(double amount) {
         if (amount < 0 || amount > balance) throw new IllegalArgumentException("...");
         this.balance -= amount;
     }
