@@ -1,7 +1,7 @@
 package task2;
 
 
-public class SavingsAccount extends BankAccountv2 implements InterestBearing {
+public class SavingsAccount extends BankAccountv2 implements InterestBearing, Comparable<SavingsAccount> {
     private double interestRate;
 
     public SavingsAccount(String fullName, long accountNumber, double interestRate) {
@@ -18,10 +18,6 @@ public class SavingsAccount extends BankAccountv2 implements InterestBearing {
         return interestRate;
     }
 
-    @Override
-    public double getBalance() {
-        return super.getBalance();
-    }
 
     public void applyInterest(){
         this.deposit(this.getBalance() * this.interestRate);
@@ -34,5 +30,10 @@ public class SavingsAccount extends BankAccountv2 implements InterestBearing {
 
     public void setInterestRate(double interestRate) {
         this.interestRate = interestRate;
+    }
+
+    @Override
+    public int compareTo(SavingsAccount o){
+        return Double.compare(this.getBalance(),o.getBalance());
     }
 }

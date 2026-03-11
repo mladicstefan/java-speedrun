@@ -1,4 +1,7 @@
 package task2;
+import task3.InsufficientFundsException;
+import task3.InvalidAmountException;
+
 import java.util.UUID;
 
 abstract public class Account {
@@ -24,7 +27,7 @@ abstract public class Account {
 
     @Override
     public String toString(){
-        return "Bank Account {\n" + this.accountNumber +"\nFor User:" + this.fullName + "\nUUID:" + this.id+"\n}";
+        return "Bank Account {\n" + this.accountNumber +"\nFor User:" + this.fullName + "\nUUID:" + this.id + "\nBalance: " + this.balance + "\n}" ;
     }
 
     public String getFullName() {
@@ -51,8 +54,9 @@ abstract public class Account {
         this.balance += amount;
     }
 
-    public void withdraw(double amount) {
-        if (amount < 0 || amount > balance) throw new IllegalArgumentException("...");
+    public void withdraw(double amount) throws InsufficientFundsException, InvalidAmountException {
+        if (amount < 0) throw new InvalidAmountException("Cannot withdraw negative amount");
+        if (amount > this.balance) throw new InsufficientFundsException("Insufficient funds");
         this.balance -= amount;
     }
 
